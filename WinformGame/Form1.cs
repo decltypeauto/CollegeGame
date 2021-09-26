@@ -11,9 +11,10 @@ using System.Runtime.InteropServices;
 
 namespace WinformGame
 {
+
     public partial class loginPage : Form
     {
-        Player player;
+       
         OpenFileDialog file = new OpenFileDialog();
 
         public loginPage()
@@ -48,11 +49,11 @@ namespace WinformGame
         private void button1_Click(object sender, EventArgs e)
         {
             
-            file.ShowDialog();
-            PFPPath.Text = file.FileName;
-            player = new Player(file.FileName, "test", new Points(1, 2, 3));
+            //file.ShowDialog();
+            //PFPPath.Text = file.FileName;
+            //Globals.player = new Player(file.FileName, "test", new Points(0, 0, 0));
             //player.SetProfile(file.FileName);
-            pictureBox1.Image = Image.FromFile(player.profilePicture);
+            //pictureBox1.Image = Image.FromFile(Globals.player.profilePicture);
         }
 
         private void continueButton_Click(object sender, EventArgs e)
@@ -62,6 +63,7 @@ namespace WinformGame
                 this.Hide();
                 RPS rpsForm = new RPS();
                 rpsForm.Show();
+               // Globals.player = new Player("d", "test", new Points(0, 0, 0));
             }
             else
                 MessageBox.Show("You have not entered a Username or picked a PFP!");

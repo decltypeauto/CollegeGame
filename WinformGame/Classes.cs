@@ -7,7 +7,10 @@ using System.Drawing;
 
 namespace WinformGame
 {
-
+    public static class Globals
+    {
+        public static Player player = new Player("d", "test", new Points(0, 0, 0));
+    }
     public class Points
     {
         public int wins, losses, draws;
@@ -16,6 +19,18 @@ namespace WinformGame
             wins = w_;
             losses = l_;
             draws = d_; 
+        }
+        public void UpdateWins(int w_)
+        {
+            wins = w_;
+        }
+        public void UpdateLosses(int l_)
+        {
+            losses = l_;
+        }
+        public void UpdateDraws(int d_)
+        {
+            draws = d_;
         }
     }
 
@@ -45,6 +60,10 @@ namespace WinformGame
         public void SetPoints(Points score_)
         {
             score = score_;
+        }
+        public Points GetPoints()
+        {
+            return score;
         }
     }
 }
