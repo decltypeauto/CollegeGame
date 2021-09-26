@@ -11,12 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace WinformGame
 {
-    public partial class Form1 : Form
+    public partial class loginPage : Form
     {
         Player player;
+        OpenFileDialog file = new OpenFileDialog();
 
-
-        public Form1()
+        public loginPage()
         {
             InitializeComponent();
         }
@@ -24,9 +24,9 @@ namespace WinformGame
         private void Form1_Load(object sender, EventArgs e)
         {
             AllocConsole();
-            player = new Player("O:\\vs\\WinformGame\\WinformGame\\Resources\\Picture1.png", "test", new Points(1,2,3));
-            Console.WriteLine(player.username);
-            pictureBox2.Image = Image.FromFile(player.profilePicture);
+           // player = new Player("O:\\vs\\WinformGame\\WinformGame\\Resources\\Picture1.png", "test", new Points(1,2,3));
+            //Console.WriteLine(player.username);
+            //pictureBox1.Image = Image.FromFile(player.profilePicture);
             
         }
 
@@ -47,11 +47,24 @@ namespace WinformGame
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog file = new OpenFileDialog();
+            
             file.ShowDialog();
-            label1.Text = file.FileName;
-            player.SetProfile(file.FileName);
-            pictureBox2.Image = Image.FromFile(player.profilePicture);
+            PFPPath.Text = file.FileName;
+            player = new Player(file.FileName, "test", new Points(1, 2, 3));
+            //player.SetProfile(file.FileName);
+            pictureBox1.Image = Image.FromFile(player.profilePicture);
+        }
+
+        private void continueButton_Click(object sender, EventArgs e)
+        {
+            if (file.FileName != "" || usernameBox.Text != "")
+            {
+                this.Hide();
+                RPS rpsForm = new RPS();
+                rpsForm.Show();
+            }
+            else
+                MessageBox.Show("You have not entered a Username or picked a PFP!");
         }
     }
 }

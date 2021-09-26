@@ -14,5 +14,13 @@ namespace WinformGame
             Paper,
             Scissors
         }
+
+        public enum WinnerTypes
+        {
+            Human = 1,
+            Computer,
+            Draw,
+            Error
+        }
     }
 }
