@@ -19,9 +19,9 @@ namespace WinformGame
 
         private Enums.WinnerTypes winnerDecision(Enums.RPSTypes computerDecision, Enums.RPSTypes playerDecision)
         {
-            if (playerDecision == computerDecision)
-                return Enums.WinnerTypes.Draw;
-
+            //if (playerDecision == computerDecision)
+              //  return Enums.WinnerTypes.Draw;
+            
             switch (computerDecision)
             {
                 case Enums.RPSTypes.Rock:
@@ -29,23 +29,30 @@ namespace WinformGame
                         return Enums.WinnerTypes.Human;
                     if (playerDecision == Enums.RPSTypes.Scissors)
                         return Enums.WinnerTypes.Computer;
+                    else
+                        return Enums.WinnerTypes.Draw;
                     break;
                 case Enums.RPSTypes.Paper:
                     if (playerDecision == Enums.RPSTypes.Rock)
                         return Enums.WinnerTypes.Computer;
                     if (playerDecision == Enums.RPSTypes.Scissors)
                         return Enums.WinnerTypes.Human;
+                    else
+                        return Enums.WinnerTypes.Draw;
                     break;
                 case Enums.RPSTypes.Scissors:
                     if (playerDecision == Enums.RPSTypes.Rock)
                         return Enums.WinnerTypes.Human;
                     if (playerDecision == Enums.RPSTypes.Paper)
                         return Enums.WinnerTypes.Computer;
+                    else
+                        return Enums.WinnerTypes.Draw;
                     break;
                 default:
                     return Enums.WinnerTypes.Error;
+                    break;
             }
-            return Enums.WinnerTypes.Error;
+            //return Enums.WinnerTypes.Error;
         }
 
         private void winnerOutcome(Enums.WinnerTypes winner)
